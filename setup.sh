@@ -40,8 +40,9 @@ fi
 
 #PHP 설치
 if ! rpm -qa | grep php; then
-	yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-	yum -y --enablerepo=remi install php56 php56-php-cli php56-php-common php56-php-mbstring php56-php-mcrypt php56-php-mysql
+	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+	rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
+	yum -y install php56w php56w-common php56w-opcache php56w-mysql php56w-mbstring
 	service httpd restart
 fi
 
